@@ -1,0 +1,13 @@
+word = "restart"
+letter = word[0]
+word = word.replace(letter,"%")
+print word
+
+omg = "Best Day Ever"
+omg = omg.replace(" ",".")
+print omg.upper()
+
+word2 = "Cute"
+for letter1 in word2:
+    number = word2.find(letter1)
+    print number , "=" , letter1

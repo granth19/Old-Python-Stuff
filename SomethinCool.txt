@@ -1,0 +1,63 @@
+from Graphics import *
+import random
+win = GraphWin("SomethingCool",800,600)
+def resizeCircle(circle, factor):
+        circle.undraw()
+        radi=circle.getRadius()
+        c=Circle(circle.getCenter(),(radi*factor))
+        return c
+#win.setBackground(random.choice(colors))
+colors=["red","purple", "green","white","orange","yellow","Turquoise","Cyan", "Cadet Blue"]
+c2=Circle(Point(random.randint(0,800),random.randint(0,600)),50)
+x=random.randint(-2,2)
+y=random.randint(-2,2)
+x2=random.randint(-2,2)
+y2=random.randint(-2,2)
+c2.draw(win)
+rad=50
+rad2=50
+c=Circle(Point(random.randint(0,800),random.randint(0,600)),50)
+c.draw(win)
+while True:
+    c2.move(x,y)
+    c.move(x2,y2)
+    point2 = c.getCenter()
+    point=c2.getCenter()
+    if point2.getX()>=800 or point2.getX()<=0:
+        c.undraw()
+        c = Circle(c.getCenter(), rad2)
+        c.draw(win)
+        time.sleep(.05)
+        rad2 = rad2 * 1.1
+        x2=x2*-.8
+        c.setFill(random.choice(colors))
+        win.setBackground(random.choice(colors))
+    if point2.getY()>=600 or point2.getY()<=0:
+        c.undraw()
+        c = Circle(c.getCenter(), rad2)
+        c.draw(win)
+        time.sleep(.05)
+        rad2 = rad2 * 1.1
+        y2 = y2 * -.8
+        c.setFill(random.choice(colors))
+        win.setBackground(random.choice(colors))
+    if point.getX()>=800 or point.getX()<=0:
+        c2.undraw()
+        c2 = Circle(c2.getCenter(), rad)
+        c2.draw(win)
+        time.sleep(.05)
+        rad = rad * .9
+        x=x*-1.2
+        c2.setFill(random.choice(colors))
+        win.setBackground(random.choice(colors))
+    if point.getY()>=600 or point.getY()<=0:
+        c2.undraw()
+        c2 = Circle(c2.getCenter(), rad)
+        c2.draw(win)
+        time.sleep(.05)
+        rad = rad * .9
+        y = y * -1.2
+        c2.setFill(random.choice(colors))
+        win.setBackground(random.choice(colors))
+    time.sleep(.001)
+    update()
